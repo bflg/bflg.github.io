@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "title": "Erster Einblick in KI-Prompting",
+    "date": "2025-05-01",
+    "tags": ["Einsteiger", "Prompting"],
+    "excerpt": "Lerne die Basics des Prompt-Designs und erste Tricks, um bessere Antworten von deinem Sprachmodell zu bekommen.",
+    "image": "images/ki-prompting.jpg",
+    "content": "<p>Willkommen zu unserem ersten Blog-Eintrag! Hier erfährst du, wie du dein Sprachmodell optimal anleitest …</p>"
+  },
+  {
+    "id": "2",
+    "title": "Best Practices für Workshop-Teilnehmer",
+    "date": "2025-05-15",
+    "tags": ["Workshop", "Vorbereitung"],
+    "excerpt": "Wie du dich optimal auf unsere Live-Workshops vorbereitest und das meiste aus der Session herausholst.",
+    "image": "images/workshop-tipps.jpg",
+    "content": "<p>In diesem Beitrag zeigen wir dir, welche Schritte vor dem Workshop helfen, deine Lernerfahrung zu maximieren …</p>"
+  }
+]

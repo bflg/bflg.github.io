@@ -1,231 +1,110 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Fluvento – Prompting-Kurse kommen bald</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fluvento – Coming Soon &amp; Infos</title>
+  <meta name="description" content="Fluvento: Bald starten unsere praxisnahen Prompting-Kurse. Hier findest du Vision, Blog, Über uns, Kontakt & Datenschutz.">
+  <meta name="keywords" content="KI, Prompting, Workshops, Blog, Kontakt, Datenschutz">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Fluvento – Coming Soon &amp; Infos">
+  <meta property="og:description" content="Fluvento: Bald starten unsere praxisnahen Prompting-Kurse. Erfahre mehr über unsere Vision und melde dich zum Newsletter an!">
+  <meta property="og:image" content="https://deine-domain.de/og-image.png">
+  <meta property="og:url" content="https://deine-domain.de">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.ico">
 
-  <!-- Globale Styles -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Font Awesome (Neon-Icons) -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-
-  <!-- Haupt-Logik -->
-  <script src="main.js" defer></script>
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- zentrierter Panel-Container -->
-  <div class="panel container" id="main-panel">
-
-    <!-- HEADER -->
-    <header class="header">
-      <div class="logo" id="logo">FLUVENTO</div>
-
-      <!-- Desktop-Navigation -->
-      <nav class="nav-desktop">
-        <a href="#" data-target="home-page">Home</a>
-        <a href="#" data-target="about-page">Über uns</a>
-        <a href="#" data-target="outlook-page">Ausblick</a>
-        <a href="#" data-target="contact-page">Kontakt</a>
+  <header class="navbar" style="border-bottom: 1px solid white;">
+    <div class="nav-container">
+      <a href="#home" class="logo">Fluvento</a>
+      <button class="nav-toggle" aria-label="Navigation umschalten">
+        <i class="fa fa-bars"></i>
+      </button>
+      <nav class="nav-menu">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#vision" class="nav-link">Vision</a>
+        <a href="#blog" class="nav-link">Blog</a>
+        <a href="#about" class="nav-link">Über uns</a>
+        <a href="#contact" class="nav-link">Kontakt</a>
       </nav>
+    </div>
+  </header>
 
-      <!-- Mobile-Burger -->
-      <button id="burger" class="burger" aria-label="Menü">☰</button>
-
-      <!-- Mobile-Overlay-Navigation -->
-      <nav id="mobile-nav" class="nav-mobile">
-        <a href="#" data-target="home-page">Home</a>
-        <a href="#" data-target="about-page">Über uns</a>
-        <a href="#" data-target="outlook-page">Ausblick</a>
-        <a href="#" data-target="contact-page">Kontakt</a>
-      </nav>
-    </header>
-
-    <!-- MAIN: alle Unterseiten, nur eine sichtbar -->
-    <main id="main-content">
-      <!-- HOME -->
-      <section id="home-page" class="page-content">
-        <div class="hero hero-tight">
-          <h1>PROMPTING-KURSE KOMMEN BALD</h1>
-          <p>Melde dich für unseren Newsletter an, um nichts zu verpassen.</p>
-          <div class="newsletter-inline">
-            <form id="newsletter-form" class="newsletter-form">
-              <input
-                type="email"
-                id="newsletter-email"
-                placeholder="E-Mail-Adresse"
-                required
-              />
-              <button type="submit" class="btn">SUBSCRIBE</button>
-            </form>
+  <main class="container">
+    <!-- Home -->
+    <section id="home" class="page active">
+      <div class="hero">
+        <h1>PROMPTING-KURSE</h1>
+        <p class="subtitle">Kommen bald. Jetzt vormerken und Frühbucher-Rabatt sichern!</p>
+        <form id="signup-form" class="newsletter">
+          <label for="email">E-Mail-Adresse:</label>
+          <div class="input-group">
+            <input type="email" id="email" name="email" placeholder="name@beispiel.de" required>
+            <button type="submit" class="btn">Abonnieren</button>
           </div>
-        </div>
-        <div class="features cards">
-          <a href="#" data-target="grundlagen-page" class="card-link">
-            <div class="card">
-              <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
-              <div class="card-content">Grundlagen des Prompt-Designs</div>
-            </div>
-          </a>
-          <a href="#" data-target="erweitert-page" class="card-link">
-            <div class="card">
-              <div class="card-icon"><i class="fas fa-rocket"></i></div>
-              <div class="card-content">Erweiterte Prompt-Techniken</div>
-            </div>
-          </a>
-          <a href="#" data-target="bestpractice-page" class="card-link">
-            <div class="card">
-              <div class="card-icon"><i class="fas fa-cogs"></i></div>
-              <div class="card-content">Best Practices Anwendungen</div>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section id="about-page" class="page-content">
-        <h1>Über uns</h1>
-        <p>Fluvento ist dein Experte für KI-Prompting. Unser Ziel ist es, Teams den effizienten Umgang mit Sprachmodellen zu vermitteln – mit praxisnahen Workshops und Hands-on-Übungen.</p>
-        <h2>Unsere Mission</h2>
-        <p>Offener Wissensaustausch und starke Community: Wir bringen Anwender:innen und Expert:innen zusammen.</p>
-        <h2>Das Team</h2>
-        <ul>
-          <li><strong>Bastian Flügel</strong> – Gründer &amp; KI-Strategie</li>
-        </ul>
-      </section>
-
-      <!-- OUTLOOK -->
-      <section id="outlook-page" class="page-content">
-        <h1>Ausblick</h1>
-        <p>Bald live bei Fluvento:</p>
-        <ul>
-          <li><strong>Live-Workshops</strong> mit Expert:innen</li>
-          <li><strong>Praxisprojekte</strong> an realen Use-Cases</li>
-          <li><strong>Community-Forum</strong> für Austausch</li>
-          <li><strong>Regelmäßige Updates</strong> zu neuen KI-Tools</li>
-        </ul>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact-page" class="page-content">
-        <h1>Kontakt</h1>
-        <p>Wir freuen uns auf deine Nachricht – bei Fragen zu Kursen, Technik oder Kooperationen.</p>
-        <ul class="contact-info">
-          <li><i class="fas fa-envelope"></i><a href="mailto:kontakt@fluvento-solutions.eu">kontakt@fluvento-solutions.eu</a></li>
-          <li><i class="fas fa-phone"></i>+49 123 456 7890</li>
-        </ul>
-        <h2>Sprechzeiten</h2>
-        <p>Mo–Fr ab 14 Uhr<br>Samstag ganztägig</p>
-      </section>
-
-      <!-- IMPRESSUM -->
-      <section id="impressum-page" class="page-content">
-        <h1>Impressum</h1>
-        <p>Fluvento Solutions<br>Geschäftsführer: Bastian Flügel<br>Drosselstr. 4, 84144 Geisenhausen</p>
-        <h2>Haftungsausschluss</h2>
-        <p>Trotz sorgfältiger Kontrolle übernehmen wir keine Haftung für Inhalte externer Links. Verantwortlich sind nur deren Betreiber.</p>
-      </section>
-
-      <!-- DATENSCHUTZ -->
-      <section id="privacy-page" class="page-content">
-        <h1>Datenschutzerklärung</h1>
-        <h2>1. Verantwortlicher</h2>
-        <p>Fluvento Solutions, Drosselstr. 4, 84144 Geisenhausen</p>
-        <h2>2. Erhobene Daten</h2>
-        <ul>
-          <li>E-Mail (Newsletter)</li>
-          <li>Technische Log-Daten (anonymisiert)</li>
-        </ul>
-        <h2>3. Zweck &amp; Rechtsgrundlage</h2>
-        <p>Vertragserfüllung (Art. 6 Abs. 1 b DSGVO) &amp; berechtigte Interessen.</p>
-        <h2>4. Speicherfrist</h2>
-        <p>Newsletter bis Widerruf; Logs max. 7 Tage.</p>
-        <h2>5. Deine Rechte</h2>
-        <ul>
-          <li>Auskunft, Berichtigung, Löschung</li>
-          <li>Widerspruch, Einschränkung</li>
-        </ul>
-      </section>
-
-      <!-- AGB -->
-      <section id="agb-page" class="page-content">
-        <h1>AGB &amp; Disclaimer</h1>
-        <h2>§ 1 Geltungsbereich</h2>
-        <p>Für alle Verträge zwischen Fluvento und den Teilnehmer:innen.</p>
-        <!-- … übriger AGB-Text … -->
-      </section>
-
-      <!-- MODULES -->
-      <section id="grundlagen-page" class="page-content">
-        <h1>Modul 1: Grundlagen</h1>
-        <ul class="module-list">
-          <li>Was ist ein Prompt &amp; wie reagieren Modelle?</li>
-          <li>Tokenisierung &amp; Parameter verstehen</li>
-          <li>Klare, effiziente Anfragen formulieren</li>
-          <li>Hands-On: erste Prompts live testen</li>
-        </ul>
-      </section>
-      <section id="erweitert-page" class="page-content">
-        <h1>Modul 2: Erweitert</h1>
-        <ul class="module-list">
-          <li>Chain-of-Thought &amp; Few-Shot-Learning</li>
-          <li>System- vs. User- vs. Assistant-Prompts</li>
-          <li>Templating &amp; Parameter-Variationen</li>
-          <li>Prompt-Debugging &amp; Fehleranalyse</li>
-        </ul>
-      </section>
-      <section id="bestpractice-page" class="page-content">
-        <h1>Modul 3: Best Practices</h1>
-        <ul class="module-list">
-          <li>Texterstellung &amp; Prompt-Design</li>
-          <li>Chatbot-Workflows &amp; Automatisierung</li>
-          <li>API-Integration &amp; Tools</li>
-          <li>Metriken &amp; Qualitätsprüfung</li>
-        </ul>
-      </section>
-      <section id="mentoring-page" class="page-content">
-        <h1>Deep-Dive Mentoring</h1>
-        <ul class="module-list">
-          <li>1-zu-1 Coaching oder Kleingruppen</li>
-          <li>Regelmäßige Review-Sessions</li>
-          <li>Advanced Templates &amp; Ressourcen</li>
-          <li>Lebenslanger Update-Zugriff</li>
-        </ul>
-        <h2>Preise</h2>
-        <ul class="module-list">
-          <li>Basic (4 Sitzungen): € 799</li>
-          <li>Premium (8 Sitzungen): € 1 499</li>
-          <li>Ultimate (12 Sitzungen): € 2 199</li>
-        </ul>
-      </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="social-icons">
-        <a href="https://youtube.com/fluvento" target="_blank" aria-label="YouTube">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://linkedin.com/company/fluvento" target="_blank" aria-label="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://instagram.com/fluvento" target="_blank" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
+          <p id="msg" class="msg"></p>
+        </form>
       </div>
-      <div class="bottom-links">
-        <a href="#" class="bottom-link" data-target="impressum-page">Impressum</a> |
-        <a href="#" class="bottom-link" data-target="privacy-page">Datenschutz</a> |
-        <a href="#" class="bottom-link" data-target="agb-page">AGB</a>
-      </div>
-    </footer>
-  </div>
+    </section>
+
+    <!-- Vision -->
+    <section id="vision" class="page">
+      <h2>Unsere Vision</h2>
+      <p>Wir bei Fluvento glauben an die Kraft von KI-Prompting, um Teams produktiver und kreativer zu machen. Mit praxisnahen Workshops und einer starken Community öffnen und teilen wir Wissen.</p>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="page">
+      <h2>Blog</h2>
+      <div id="blog-list" class="card-grid"></div>
+      <div id="blog-post"></div>
+    </section>
+
+    <!-- Über uns -->
+    <section id="about" class="page">
+      <h2>Über uns</h2>
+      <p>Fluvento Solutions – dein Partner für KI-Prompting und Web-Mentoring. Gegründet von Bastian Flügel, bieten wir Workshops, Mentoring und PR-Support für Startups.</p>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="contact" class="page">
+      <h2>Kontakt</h2>
+      <p>Fragen zu Kursen oder Kooperationen? Schreib uns:</p>
+      <p><i class="fa-solid fa-envelope"></i> <a href="mailto:kontakt@fluvento-solutions.eu">kontakt@fluvento-solutions.eu</a></p>
+      <p><i class="fa-solid fa-phone"></i> +49 123 456 7890</p>
+      <p>Sprechzeiten: Mo–Fr ab 14 Uhr • Samstag ganztägig</p>
+    </section>
+
+    <!-- Datenschutz -->
+    <section id="datenschutz" class="page">
+      <h2>Datenschutz</h2>
+      <p>Verantwortlicher: Fluvento Solutions, Drosselstr. 4, 84144 Geisenhausen</p>
+      <p>Erhobene Daten: E-Mail (Newsletter), technische Log-Daten (anonymisiert)</p>
+      <p>Rechtsgrundlage: Vertragserfüllung (Art. 6 Abs. 1 b DSGVO) & berechtigte Interessen</p>
+      <p>Speicherfrist: Newsletter bis Widerruf; Logs max. 7 Tage</p>
+    </section>
+  </main>
+
+  <footer class="footer" style="border-top: 1px solid white;">
+    <div class="footer-impressum">
+      
+      <p>© 2025 Fluvento Solutions. Alle Rechte vorbehalten.</p>
+      <br>
+      <p><a href="#datenschutz">Datenschutz</a></p>
+      <br>
+      <p>IMPRESSUM</p>
+      <p>Fluvento Solutions<br>Inhaber: Bastian Flügel<br>Drosselstr. 4<br>Geisenhausen</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
