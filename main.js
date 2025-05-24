@@ -1,117 +1,74 @@
 /**
  * main.js
- * - Burger-Menü
- * - Seiten-Routing (showPage)
- * - Newsletter & Kontakt Formulare
+ * - Burger-Toggle (.open)
+ * - Routing showPage()
+ * - Auto-Close Overlay & Resize-Handler
+ * - Newsletter-Submit
  */
 
-// main.js
 document.addEventListener('DOMContentLoaded', () => {
-  const burger    = document.getElementById('burger')
-  const mobileNav = document.getElementById('mobile-nav')
+  const burger    = document.getElementById('burger');
+  const mobileNav = document.getElementById('mobile-nav');
+  const logo      = document.getElementById('logo');
 
-  // 1) Burger togglet die Klasse "open"
+  // 1) Burger toggelt Overlay-Klasse
   burger.addEventListener('click', () => {
-    mobileNav.classList.toggle('open')
-  })
+    mobileNav.classList.toggle('open');
+  });
 
-  // 2) Klick auf einen Nav-Link schließt das Overlay
+  // 2) Klick auf Link oder Hintergrund schließt Overlay
   mobileNav.addEventListener('click', e => {
-    if (e.target.tagName === 'A') {
-      mobileNav.classList.remove('open')
+    if (e.target.tagName === 'A' || e.target === mobileNav) {
+      mobileNav.classList.remove('open');
     }
-  })
+  });
 
-  // 3) Klick außerhalb der Links (auf das Overlay selbst) schließt ebenfalls
-  mobileNav.addEventListener('click', e => {
-    if (e.target === mobileNav) {
-      mobileNav.classList.remove('open')
-    }
-  })
-
-  // 4) Fenster-Resize: schließe Overlay, sobald man wieder ins Desktop-Layout geht
+  // 3) Beim Resize in Desktop einblenden, Overlay schließen
   window.addEventListener('resize', () => {
     if (window.innerWidth >= 640 && mobileNav.classList.contains('open')) {
-      mobileNav.classList.remove('open')
+      mobileNav.classList.remove('open');
     }
-  })
-  
-  // ... dein restliches showPage(), form-Handling etc. bleibt unverändert ...
+  });
 
-
-
-  /**
-   * Zeigt nur die angegebene Seite,
-   * versteckt alle anderen .page-content-Sektionen
-   */
+  // showPage: blendet .page-content ein/aus
   function showPage(id) {
     document.querySelectorAll('.page-content').forEach(sec => {
       sec.style.display = sec.id === id ? 'block' : 'none';
     });
-    // scroll immer nach oben
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Routing-Links (nav + card-Links + footer)
+  // Nav-Links & Card-Links
   document.querySelectorAll('[data-target]').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
-      const target = link.dataset.target;
-      mobileNav.style.display = 'none';
-      showPage(target);
+      mobileNav.classList.remove('open');
+      showPage(link.dataset.target);
     });
   });
 
-  // Logo klick → Home
+  // Logo → Home
   logo.addEventListener('click', () => showPage('home-page'));
 
-  // Newsletter Formulare (Header & Footer)
-  ['newsletter-form', 'newsletter-form-footer'].forEach(formId => {
-    const form = document.getElementById(formId);
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      const email =
-        form.querySelector('input[type="email"]').value.trim();
-      if (!email) return;
-      try {
-        await fetch('/backend/public/api/newsletter.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email })
-        });
-        alert('Danke für dein Abo!');
-        form.reset();
-      } catch {
-        alert('Fehler beim Absenden.');
-      }
-    });
+  // Newsletter-Form
+  const newsletterForm = document.getElementById('newsletter-form');
+  newsletterForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const email = e.target.querySelector('input').value.trim();
+    if (!email) return;
+    try {
+      await fetch('/backend/public/api/newsletter.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      alert('Danke für dein Abo!');
+      e.target.reset();
+    } catch {
+      alert('Fehler beim Absenden.');
+    }
   });
 
-  // Kontakt-Formular (optional, falls aktiv)
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', async e => {
-      e.preventDefault();
-      const data = {
-        name:    e.target.name.value.trim(),
-        email:   e.target.email.value.trim(),
-        message: e.target.message.value.trim()
-      };
-      try {
-        await fetch('/backend/public/api/contact.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-        alert('Nachricht gesendet!');
-        contactForm.reset();
-        showPage('home-page');
-      } catch {
-        alert('Fehler beim Absenden.');
-      }
-    });
-  }
-
-  // Initial: Home anzeigen
+  // Initial Seite Home
   showPage('home-page');
 });
