@@ -5,16 +5,39 @@
  * - Newsletter & Kontakt Formulare
  */
 
+// main.js
 document.addEventListener('DOMContentLoaded', () => {
-  // Elemente holen
-  const burger    = document.getElementById('burger');
-  const mobileNav = document.getElementById('mobile-nav');
-  const logo      = document.getElementById('logo');
+  const burger    = document.getElementById('burger')
+  const mobileNav = document.getElementById('mobile-nav')
 
-  // Toggle Mobile-Nav
+  // 1) Burger togglet die Klasse "open"
   burger.addEventListener('click', () => {
-  mobileNav.classList.toggle('open')
-})
+    mobileNav.classList.toggle('open')
+  })
+
+  // 2) Klick auf einen Nav-Link schließt das Overlay
+  mobileNav.addEventListener('click', e => {
+    if (e.target.tagName === 'A') {
+      mobileNav.classList.remove('open')
+    }
+  })
+
+  // 3) Klick außerhalb der Links (auf das Overlay selbst) schließt ebenfalls
+  mobileNav.addEventListener('click', e => {
+    if (e.target === mobileNav) {
+      mobileNav.classList.remove('open')
+    }
+  })
+
+  // 4) Fenster-Resize: schließe Overlay, sobald man wieder ins Desktop-Layout geht
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 640 && mobileNav.classList.contains('open')) {
+      mobileNav.classList.remove('open')
+    }
+  })
+  
+  // ... dein restliches showPage(), form-Handling etc. bleibt unverändert ...
+
 
 
   /**
