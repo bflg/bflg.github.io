@@ -142,8 +142,6 @@ a:hover {
 #main-content {
   flex: 1;
   display: flex;
-  justify-content: center; /* vertikal */
-  align-items: center;     /* horizontal */
   overflow: auto;
   padding: 1rem 0;
 }
