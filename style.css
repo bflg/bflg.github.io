@@ -584,3 +584,29 @@ a:hover {
 .hidden {
   display: none !important;
 }
+
+@media screen and (max-width: 640px) {
+  .nav-desktop {
+    display: none; /* Desktop-Nav ausblenden auf kleinen Bildschirmen */
+  }
+  .nav-mobile {
+    display: flex; /* Mobile-Nav anzeigen */
+  }
+  .burger {
+    display: block; /* Burger-Icon anzeigen */
+  }
+    
+}
+
+@media screen and (min-width: 640px) {
+  .nav-mobile {
+    display: none; /* Mobile-Nav ausblenden auf größeren Bildschirmen */
+  }
+  .nav-desktop {
+    display: flex; /* Desktop-Nav anzeigen */
+  }
+  .burger {
+    display: none; /* Burger-Icon ausblenden */
+  }
+    
+}
