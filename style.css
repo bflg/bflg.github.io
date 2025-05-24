@@ -85,27 +85,49 @@ body {
   cursor: pointer;
   color: var(--fg);
 }
+/*----------------------------------------
+  MOBILE NAV AS FULLSCREEN OVERLAY
+----------------------------------------*/
 .nav-mobile {
-  display: none;
+  position: fixed;
+  inset: 0;                        /* top/right/bottom/left = 0 */
+  background: rgba(0, 0, 0, 0.7);  /* dunkles Overlay */
+  backdrop-filter: blur(8px);      /* weicher Blur des Hintergrunds */
+  display: none;                   /* versteckt bis js.open */
+  z-index: 1000;
+
+  /* zentrierter Flex-Container */
+  display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 100%;
-  right: 1rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* wenn .open dranhängt, wird es sichtbar */
+.nav-mobile.open {
+  display: flex;
+}
+
+/* Links im Overlay = große Buttons */
+.nav-mobile a {
+  display: block;
+  width: 80%;
+  max-width: 320px;
+  padding: 1rem 1.5rem;
   background: var(--panel-bg);
   border: 1px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
-}
-.nav-mobile a {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--border);
-}
-.nav-mobile a:last-child {
-  border-bottom: none;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 1.1rem;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
 .nav-mobile a:hover {
   background: rgba(0,186,255,0.1);
+  color: var(--accent);
+  box-shadow: 0 0 8px var(--accent), 0 0 16px var(--accent-glow);
 }
+
 
 /* ----------------------------------------
    MAIN / PAGES
