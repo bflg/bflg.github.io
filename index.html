@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fluvento – Prompting-Kurse kommen bald</title>
+
+  <!-- Globale Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Font Awesome (Neon-Icons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body>
+  <!-- PANEL: zentriert, max 800×600, scrollbarer Inhalt -->
+  <div class="panel container" id="main-panel">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo" id="logo">FLUVENTO</div>
+
+      <!-- Desktop-Navigation -->
+      <nav class="nav-desktop">
+        <a href="#" data-target="home-page">Home</a>
+        <a href="#" data-target="about-page">Über uns</a>
+        <a href="#" data-target="outlook-page">Ausblick</a>
+        <a href="#" data-target="contact-page">Kontakt</a>
+      </nav>
+
+      <!-- Mobile-Toggle -->
+      <button id="burger" class="burger" aria-label="Menü">☰</button>
+
+      <!-- Mobile-Navigation (versteckt bis Toggle) -->
+      <nav id="mobile-nav" class="nav-mobile">
+        <a href="#" data-target="home-page">Home</a>
+        <a href="#" data-target="about-page">Über uns</a>
+        <a href="#" data-target="outlook-page">Ausblick</a>
+        <a href="#" data-target="contact-page">Kontakt</a>
+      </nav>
+    </header>
+
+    <!-- MAIN: alle Unterseiten, jeweils eine sichtbar -->
+    <main id="main-content">
+      <!-- HOME -->
+      <section id="home-page" class="page-content">
+        <div class="hero hero-tight">
+          <h1>PROMPTING-KURSE KOMMEN BALD</h1>
+          <p>Melde dich für unseren Newsletter an, um nichts zu verpassen.</p>
+          <div class="newsletter-inline">
+            <form id="newsletter-form" class="newsletter-form">
+              <input
+                type="email"
+                id="newsletter-email"
+                placeholder="E-Mail-Adresse"
+                required
+              />
+              <button type="submit" class="btn">SUBSCRIBE</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="features cards">
+          <!-- Modul-Karten -->
+          <a href="#" data-target="grundlagen-page" class="card-link">
+            <div class="card">
+              <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+              <div class="card-content">Grundlagen des Prompt-Designs</div>
+            </div>
+          </a>
+          <a href="#" data-target="erweitert-page" class="card-link">
+            <div class="card">
+              <div class="card-icon"><i class="fas fa-rocket"></i></div>
+              <div class="card-content">Erweiterte Prompt-Techniken</div>
+            </div>
+          </a>
+          <a href="#" data-target="bestpractice-page" class="card-link">
+            <div class="card">
+              <div class="card-icon"><i class="fas fa-cogs"></i></div>
+              <div class="card-content">Best Practices Anwendungen</div>
+            </div>
+          </a>
+          <!--a href="#" data-target="mentoring-page" class="card-link">
+            <div class="card">
+              <div class="card-icon"><i class="fas fa-user-tie"></i></div>
+              <div class="card-content">Persönliches Mentoring</div>
+            </div>
+          </a-->
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about-page" class="page-content "style="text-align: left;">
+        <h1>Über uns</h1>
+        <p>
+          Fluvento ist dein Experte für KI-Prompting. Unser Ziel ist es, Teams den
+          effizienten Umgang mit Sprachmodellen zu vermitteln – mit
+          praxisnahen Workshops und Hands-on-Übungen.
+        </p>
+        <h2>Unsere Mission</h2>
+        <p>
+          Offener Wissensaustausch und starke Community: Wir bringen
+          Anwender:innen und Expert:innen zusammen.
+        </p>
+        <h2>Das Team</h2>
+        <ul>
+          <li><strong>Bastian Flügel</strong> – Gründer &amp; KI-Strategie</li>
+          <!--li><strong>Carmen Efffenberger</strong> – Support &amp; Sekreteriat</li-->
+        </ul>
+      </section>
+
+      <!-- OUTLOOK -->
+      <section id="outlook-page" class="page-content " style="text-align: left;">
+        <h1>Ausblick</h1>
+        <p>Bald live bei Fluvento:</p>
+        <ul>
+          <li><strong>Live-Workshops</strong> mit Expert:innen</li>
+          <li><strong>Praxisprojekte</strong> an realen Use-Cases</li>
+          <li><strong>Community-Forum</strong> für Austausch</li>
+          <li><strong>Regelmäßige Updates</strong> zu neuen KI-Tools</li>
+        </ul>
+        <p>Abonniere unseren Newsletter oder folge uns auf Social Media.</p>
+          <div class="newsletter-inline">
+            <form id="newsletter-form" class="newsletter-form">
+              <input
+                type="email"
+                id="newsletter-email"
+                placeholder="E-Mail-Adresse"
+                required
+              />
+              <button type="submit" class="btn">SUBSCRIBE</button>
+            </form>
+          </div>
+     
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact-page" class="page-content ">
+        <h1>Kontakt</h1>
+        <p>
+          Wir freuen uns auf deine Nachricht – bei Fragen zu Kursen,
+          Technik oder Kooperationen.
+        </p>
+        <ul class="contact-info">
+          <li>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:kontakt@fluvento-solutions.eu"
+              >kontakt@fluvento-solutions.eu</a
+            >
+          </li>
+          <li>
+            <i class="fas fa-phone"></i>
+            +49 123 456 7890
+          </li>
+        </ul>
+        <h2>Sprechzeiten</h2>
+        <p>Mo–Fr ab 14 Uhr</p>
+        <p>Samstag ganztägig</p>
+
+        <!--h2>Nachricht senden</h2>
+        <form id="contact-form" class="contact-form">
+          <input type="text"    name="name"    placeholder="Name"           required />
+          <input type="email"   name="email"   placeholder="E-Mail"         required />
+          <textarea name="message" placeholder="Nachricht" rows="4" required></textarea>
+          <button type="submit" class="btn">Absenden</button>
+        </form-->
+      </section>
+
+      <!-- IMPRESSUM -->
+      <section id="impressum-page" class="page-content " style="text-align: left;">
+        <h1>Impressum</h1>
+        <p>
+          Fluvento Solutions<br />
+          Geschäftsführer: Bastian Flügel<br />
+          Drosselstr. 4, 84144 Geisenhausen, Deutschland<br />
+        </p>
+        <h2>Haftungsausschluss</h2>
+        <p>
+          Trotz sorgfältiger Kontrolle übernehmen wir keine Haftung für Inhalte
+          externer Links. Verantwortlich sind nur deren Betreiber.
+        </p>
+      </section>
+
+      <!-- DATENSCHUTZ -->
+      <section id="privacy-page" class="page-content" style="text-align: left;">
+        <h1>Datenschutzerklärung</h1>
+        <h2>1. Verantwortlicher</h2>
+        <p>Fluvento Solutions, Drosselstr. 4, 84144 Geisenhausen</p>
+        <h2>2. Erhobene Daten</h2>
+        <ul>
+          <li>E-Mail (Newsletter)</li>
+          <li>Kontaktformular-Eingaben</li>
+          <li>Technische Log-Daten (anonymisiert)</li>
+        </ul>
+        <h2>3. Zweck &amp; Rechtsgrundlage</h2>
+        <p>Vertragserfüllung (Art. 6 Abs. 1 b DSGVO) &amp; berechtigte Interessen.</p>
+        <h2>4. Speicherfrist</h2>
+        <p>Newsletter bis Widerruf; Logs max. 7 Tage.</p>
+        <h2>5. Deine Rechte</h2>
+        <ul>
+          <li>Auskunft, Berichtigung, Löschung</li>
+          <li>Widerspruch, Einschränkung</li>
+          <li>Beschwerde an Aufsichtsbehörde</li>
+        </ul>
+      </section>
+
+      <!-- AGB -->
+      <section id="agb-page" class="page-content " style="text-align: left;">
+        <h1>Allgemeine Geschäftsbedingungen (AGB)</h1>
+        <h2>§ 1 Geltungsbereich</h2>
+        <p>Für alle Verträge zwischen Fluvento und den Teilnehmer:innen.</p>
+        <h2>§ 2 Vertragsabschluss</h2>
+        <p>Mit Anmeldung zum Kurs oder Mentoring-Paket.</p>
+        <h2>§ 3 Preise &amp; Zahlung</h2>
+        <p>Endpreise in €, inkl. MwSt. Vorkasse oder PayPal.</p>
+        <h2>§ 4 Stornierung</h2>
+        <p>Bis 14 Tage vor Kursbeginn kostenfrei, danach 50 % Gebühr.</p>
+        <h2>§ 5 Haftung</h2>
+        <p>
+          Fluvento haftet für Vorsatz &amp; grobe Fahrlässigkeit.  
+          Für indirekte Schäden nur bei Verletzung wesentlicher Pflichten.
+        </p>
+        <h2>§ 6 Widerrufsrecht</h2>
+        <p>
+          Du hast das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen
+          Vertrag zu widerrufen.
+          Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsabschlusses.
+          Um dein Widerrufsrecht auszuüben, musst du uns (Fluvento Solutions GmbH,
+          Drosselstr. 4, 84144 Geisenhausen, E-Mail: kontakt@fluvento-solutions.eu)
+          mittels einer eindeutigen Erklärung (z. B. ein mit der Post versandter
+          Brief, Telefax oder E-Mail) über deinen Entschluss, diesen Vertrag zu
+          widerrufen, informieren. Du kannst dafür das beigefügte Muster-Widerrufsformular
+          verwenden, das jedoch nicht vorgeschrieben ist. Zur Wahrung der
+          Widerrufsfrist reicht es aus, dass du die Mitteilung über die Ausübung
+          des Widerrufsrechts vor Ablauf der Widerrufsfrist absendest.
+        </p>
+        <h2>§ 7 Widerrufsfolgen</h2>
+        <p>
+          Wenn du diesen Vertrag widerrufst, haben wir dir alle Zahlungen, die
+          wir von dir erhalten haben, einschließlich der Lieferkosten (mit
+          Ausnahme der zusätzlichen Kosten, die sich daraus ergeben, dass du
+          eine andere Art der Lieferung als die von uns angebotene, günstigste
+          Standardlieferung gewählt hast), unverzüglich und spätestens binnen
+          vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über
+          deinen Widerruf dieses Vertrags bei uns eingegangen ist. Für diese
+          Rückzahlung verwenden wir dasselbe Zahlungsmittel, das du bei der 
+            ursprünglichen Transaktion eingesetzt hast, es sei denn, mit dir   
+            wurde ausdrücklich etwas anderes vereinbart; in keinem Fall werden
+            dir wegen dieser Rückzahlung Entgelte berechnet. Wir können die
+            Rückzahlung verweigern, bis wir die Waren wieder zurückerhalten haben
+            oder du den Nachweis erbracht hast, dass du die Waren zurückgesandt
+            hast, je nachdem, welches der frühere Zeitpunkt ist. Du hast die
+            Waren unverzüglich und in jedem Fall spätestens binnen vierzehn
+            Tagen ab dem Tag, an dem du uns über den Widerruf dieses Vertrags
+            unterrichtet hast, an uns zurückzusenden oder zu übergeben. Die
+            Frist ist gewahrt, wenn du die Waren vor Ablauf der Frist von
+            vierzehn Tagen absendest. Du trägst die unmittelbaren Kosten der
+            Rücksendung der Waren. Du musst für einen etwaigen Wertverlust der
+            Waren nur aufkommen, wenn dieser Wertverlust auf einen zur
+            Prüfung der Beschaffenheit, Eigenschaften und Funktionsweise der
+            Waren nicht notwendigen Umgang mit ihnen zurückzuführen ist.
+        </p>
+        <h2>§ 8 Schlussbestimmungen</h2>
+        <p>
+          Es gilt deutsches Recht. Die Anwendung des UN-Kaufrechts ist
+          ausgeschlossen. Sofern du Kaufmann bist, ist ausschließlicher
+          Gerichtsstand für alle Streitigkeiten aus diesem Vertrag der Sitz von
+          Fluvento.
+        </p>
+        <p>
+          Sollten einzelne Bestimmungen dieser Allgemeinen Geschäftsbedingungen
+          unwirksam sein oder werden, so bleibt die Wirksamkeit der übrigen
+          Bestimmungen unberührt. Anstelle der unwirksamen Bestimmung gelten
+          die gesetzlichen Vorschriften.
+        </p>
+        <p>
+          Diese Allgemeinen Geschäftsbedingungen gelten ab dem 01.05.2024.
+        </p>
+        <p>
+          Stand: 01.05.2025
+        </p>
+      </section>
+
+      <!-- MODULE 1–4 -->
+      <section id="grundlagen-page"  class="page-content ">
+        <h1>Modul 1: Grundlagen</h1>
+        <ul class="module-list">
+          <li>Was ist ein Prompt &amp; wie reagieren Modelle?</li>
+          <li>Tokenisierung &amp; Parameter verstehen</li>
+          <li>Klare, effiziente Anfragen formulieren</li>
+          <li>Hands-On: erste Prompts live testen</li>
+        </ul>
+      </section>
+
+      <section id="erweitert-page" class="page-content ">
+        <h1>Modul 2: Erweitert</h1>
+        <ul class="module-list">
+          <li>Chain-of-Thought &amp; Few-Shot-Learning</li>
+          <li>System- vs. User- vs. Assistant-Prompts</li>
+          <li>Templating &amp; Parameter-Variationen</li>
+          <li>Prompt-Debugging &amp; Fehleranalyse</li>
+        </ul>
+      </section>
+
+      <section id="bestpractice-page" class="page-content ">
+        <h1>Modul 3: Best Practices</h1>
+        <ul class="module-list">
+          <li>Texterstellung &amp; Prompt-Design</li>
+          <li>Chatbot-Workflows &amp; Automatisierung</li>
+          <li>API-Integration &amp; Tools</li>
+          <li>Metriken &amp; Qualitätsprüfung</li>
+        </ul>
+      </section>
+
+      <section id="mentoring-page" class="page-content ">
+        <h1>Deep-Dive Mentoring</h1>
+        <ul class="module-list">
+          <li>1-zu-1 Coaching oder Kleingruppen</li>
+          <li>Regelmäßige Review-Sessions</li>
+          <li>Advanced Templates &amp; Ressourcen</li>
+          <li>Lebenslanger Update-Zugriff</li>
+        </ul>
+        <h2>Preise</h2>
+        <ul class="module-list">
+          <li>Basic (4 Sitzungen): € 799</li>
+          <li>Premium (8 Sitzungen): € 1 499</li>
+          <li>Ultimate (12 Sitzungen): € 2 199</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- FOOTER (statisch unten) -->
+    <footer class="footer">
+      
+
+      <div class="social-icons">
+        <a href="https://youtube.com/fluvento" target="_blank" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://linkedin.com/company/fluvento" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://instagram.com/fluvento" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+
+      <div class="bottom-links">
+        <a href="#" class="bottom-link" data-target="impressum-page">Impressum</a> |
+        <a href="#" class="bottom-link" data-target="privacy-page">Datenschutz</a> |
+        <a href="#" class="bottom-link" data-target="agb-page">AGB</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Logik: Navigation, Formulare, Routing -->
+  <script src="main.js" defer></script>
+</body>
+</html>
