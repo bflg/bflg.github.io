@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Toggle Mobile-Nav
   burger.addEventListener('click', () => {
-    mobileNav.style.display =
-      mobileNav.style.display === 'flex' ? 'none' : 'flex';
-  });
+  mobileNav.classList.toggle('open')
+})
+
 
   /**
    * Zeigt nur die angegebene Seite,
