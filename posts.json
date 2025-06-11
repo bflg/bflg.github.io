@@ -1,20 +1,161 @@
-[
-  {
-    "id": "1",
-    "title": "Erster Einblick in KI-Prompting",
-    "date": "2025-05-01",
-    "tags": ["Einsteiger", "Prompting"],
-    "excerpt": "Lerne die Basics des Prompt-Designs und erste Tricks, um bessere Antworten von deinem Sprachmodell zu bekommen.",
-    "image": "images/ki-prompting.jpg",
-    "content": "<p>Willkommen zu unserem ersten Blog-Eintrag! Hier erfährst du, wie du dein Sprachmodell optimal anleitest …</p>"
-  },
-  {
-    "id": "2",
-    "title": "Best Practices für Workshop-Teilnehmer",
-    "date": "2025-05-15",
-    "tags": ["Workshop", "Vorbereitung"],
-    "excerpt": "Wie du dich optimal auf unsere Live-Workshops vorbereitest und das meiste aus der Session herausholst.",
-    "image": "images/workshop-tipps.jpg",
-    "content": "<p>In diesem Beitrag zeigen wir dir, welche Schritte vor dem Workshop helfen, deine Lernerfahrung zu maximieren …</p>"
+{
+  "home": {
+    "header": {
+      "nav": {
+        "btn1": {
+          "label": "Kontakt",
+          "type": "link",
+          "link": "#kontakt"
+        }
+      }
+    },
+    "hero": {
+      "title": "Ihr starker Partner für Web, Data & KI",
+      "content": "Wir kombinieren modernste Frontend- und Backend-Technologien mit datengetriebenen Insights und KI-Lösungen, um Ihre Projekte zum Erfolg zu führen.",
+      "btn1": {
+        "label": "Termin vereinbaren",
+        "type": "primary",
+        "link": "#termin"
+      },
+      "btn2": {
+        "label": "Beispiele ansehen",
+        "type": "secondary",
+        "link": "#beispiele"
+      }
+    },
+    "cards": {
+      "card1": {
+        "title": "Modernes Frontend",
+        "content": "Interaktive UIs mit React, Vue oder Svelte – responsive, performant und wartbar.",
+        "btn1": {
+          "label": "Mehr erfahren",
+          "type": "primary",
+          "link": "#frontend"
+        },
+        "btn2": {
+          "label": "Termin vereinbaren",
+          "type": "secondary",
+          "link": "#termin"
+        }
+      },
+      "card2": {
+        "title": "Skalierbares Backend",
+        "content": "Robuste APIs und Microservices mit Node.js, Python oder Go – sicher und hochverfügbar.",
+        "btn1": {
+          "label": "Mehr erfahren",
+          "type": "primary",
+          "link": "#backend"
+        },
+        "btn2": {
+          "label": "Termin vereinbaren",
+          "type": "secondary",
+          "link": "#termin"
+        }
+      },
+      "card3": {
+        "title": "SEO & Performance",
+        "content": "Optimierung für Suchmaschinen und Ladezeiten – damit Sie von Ihren Kunden besser gefunden werden.",
+        "btn1": {
+          "label": "Mehr erfahren",
+          "type": "primary",
+          "link": "#seo"
+        },
+        "btn2": {
+          "label": "Termin vereinbaren",
+          "type": "secondary",
+          "link": "#termin"
+        }
+      },
+      "card4": {
+        "title": "Datenvisualisierung",
+        "content": "Anschauliche Dashboards und interaktive Charts mit D3.js &amp; Tableau – Insights auf Knopfdruck.",
+        "btn1": {
+          "label": "Mehr erfahren",
+          "type": "primary",
+          "link": "#visualisierung"
+        },
+        "btn2": {
+          "label": "Termin vereinbaren",
+          "type": "secondary",
+          "link": "#termin"
+        }
+      },
+      "card5": {
+        "title": "Datenoptimierung",
+        "content": "ETL-Pipelines, Datenbereinigung und Performance-Tuning für Ihre Datenbank und BI-Plattform.",
+        "btn1": {
+          "label": "Mehr erfahren",
+          "type": "primary",
+          "link": "#optimierung"
+        },
+        "btn2": {
+          "label": "Termin vereinbaren",
+          "type": "secondary",
+          "link": "#termin"
+        }
+      },
+      "card6": {
+        "title": "KI-Strategie",
+        "content": "Beratung bei der Entwicklung Ihrer KI-Roadmap: Use Cases, Machbarkeit und Wertschöpfung.",
+        "btn1": {
+          "label": "Mehr erfahren",
+          "type": "primary",
+          "link": "#kistrategie"
+        },
+        "btn2": {
+          "label": "Termin vereinbaren",
+          "type": "secondary",
+          "link": "#termin"
+        }
+      },
+      "card7": {
+        "title": "KI-Entwicklung",
+        "content": "Maßgeschneiderte Machine-Learning-Modelle und Automatisierung mit Python &amp; TensorFlow.",
+        "btn1": {
+          "label": "Mehr erfahren",
+          "type": "primary",
+          "link": "#kientwicklung"
+        },
+        "btn2": {
+          "label": "Termin vereinbaren",
+          "type": "secondary",
+          "link": "#termin"
+        }
+      },
+      "card8": {
+        "title": "KI-Schulung",
+        "content": "Workshops und Trainings für Ihr Team – von den Grundlagen bis zu fortgeschrittenen KI-Techniken.",
+        "btn1": {
+          "label": "Mehr erfahren",
+          "type": "primary",
+          "link": "#kischulung"
+        },
+        "btn2": {
+          "label": "Termin vereinbaren",
+          "type": "secondary",
+          "link": "#termin"
+        }
+      }
+    },
+    "footer": {
+      "nav": {
+        "btn1": {
+          "label": "Impressum",
+          "type": "link",
+          "link": "#impressum"
+        },
+        "btn2": {
+          "label": "AGB",
+          "type": "link",
+          "link": "#agb"
+        },
+        "btn3": {
+          "label": "Datenschutz",
+          "type": "link",
+          "link": "#datenschutz"
+        }
+      },
+      "copyright": "© 2025 Bastian Flügel"
+    }
   }
-]
+}
