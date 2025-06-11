@@ -118,6 +118,18 @@
       background: var(--accent3);
       color: #fff;
     }
+    /* Buttons in den Cards 50/50 nebeneinander */
+.card .btn-group {
+  display: flex;
+  gap: 1rem; /* Abstand zwischen den Buttons */
+}
+
+.card .btn-group .btn {
+  flex: 1;           /* Jeder Button nimmt gleich viel Platz ein */
+  max-width: 50%;    /* Höchstbreite 50% pro Button */
+  text-align: center;
+}
+    
 
     /* Cards Grid */
     .cards {
