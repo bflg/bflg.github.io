@@ -1,113 +1,220 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="light-mode">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fluvento – Coming Soon &amp; Infos</title>
-  <meta name="description" content="Fluvento: Bald starten unsere praxisnahen Prompting-Kurse. Hier findest du Vision, Blog, Über uns, Kontakt & Datenschutz.">
-  <meta name="keywords" content="KI, Prompting, Workshops, Blog, Kontakt, Datenschutz">
-  <!-- Open Graph -->
-  <meta property="og:title" content="Fluvento – Coming Soon &amp; Infos">
-  <meta property="og:description" content="Fluvento: Bald starten unsere praxisnahen Prompting-Kurse. Erfahre mehr über unsere Vision und melde dich zum Newsletter an!">
-  <meta property="og:image" content="https://deine-domain.de/og-image.png">
-  <meta property="og:url" content="https://deine-domain.de">
-  <meta property="og:type" content="website">
-  <link rel="icon" href="favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bflügel – Beispielseite</title>
+  <style>
+    /* Basis-Variablen */
+    :root {
+      --header-height: 60px;
+      --accent1: #7CC576; /* Grasgrün */
+      --accent2: #56876D; /* Moosgrün */
+      --accent3: #2F4F2F; /* Tannengrün */
+      --transition-fast: 0.3s;
+    }
 
-  <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    /* Light Mode */
+    :root.light-mode {
+      --bg: #ffffff;
+      --header-bg: rgba(255,255,255,0.8);
+      --card-bg: rgba(255,255,255,0.4);
+      --card-border: rgba(0,0,0,0.1);
+      --text: #222222;
+    }
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css">
+    /* Dark Mode */
+    :root.dark-mode {
+      --bg: #2E2E2E;
+      --header-bg: rgba(46,46,46,0.8);
+      --card-bg: rgba(50,50,50,0.4);
+      --card-border: rgba(255,255,255,0.1);
+      --text: #EEEEEE;
+      --accent1: #A8E06E;
+      --accent2: #7CB97E;
+      --accent3: #4A6C4A;
+    }
+
+    /* Global & Reset */
+    html, body {
+      margin: 0; padding: 0;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      background: var(--bg);
+      color: var(--text);
+      transition: background var(--transition-fast), color var(--transition-fast);
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      line-height: 1.5;
+    }
+    * { box-sizing: border-box; }
+
+    /* Header & Toggle */
+    header.navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--header-height);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 1rem;
+      background: var(--header-bg);
+      backdrop-filter: blur(10px) saturate(180%);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 1000;
+      transition: background var(--transition-fast);
+    }
+    .logo {
+      font-size: 1.25rem; font-weight: bold;
+      color: var(--accent3);
+    }
+    nav a {
+      text-decoration: none; color: var(--text);
+      margin-right: 1rem; font-size: 1rem;
+      transition: color var(--transition-fast);
+    }
+    nav a:last-child { margin-right: 0; }
+    #theme-toggle {
+      background: none; border: none;
+      font-size: 1.25rem; cursor: pointer;
+      color: var(--text);
+      transition: color var(--transition-fast);
+    }
+    #theme-toggle:hover { color: var(--accent2); }
+
+    /* Sections: ensure header doesn’t cover on snap */
+    section {
+      scroll-snap-align: start;
+      scroll-margin-top: var(--header-height);
+    }
+
+    /* Hero */
+    .hero {
+      width: 100%; height: calc(100vh - var(--header-height));
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      color: #fff;
+      padding: 0 1rem;
+      transition: background var(--transition-fast);
+    }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .hero p {
+      font-size: 1.125rem; margin-bottom: 1.5rem; max-width: 600px;
+    }
+    .hero .btn {
+      padding: 0.75rem 1.5rem; background: #fff; color: var(--accent3);
+      border-radius: 4px; text-decoration: none; font-weight: bold;
+      transition: background var(--transition-fast), color var(--transition-fast);
+    }
+    .hero .btn:hover { background: rgba(255,255,255,0.8); color: var(--accent2); }
+
+    /* Cards */
+    .cards { padding: 3rem 0; }
+    .card {
+      margin: 2rem auto; width: 90%; max-width: 600px;
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      border-radius: 12px; backdrop-filter: blur(10px) saturate(180%);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      padding: 1.5rem; opacity: 0;
+      transform: translateX(var(--translate-x));
+      transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+    }
+    .card.in-view { opacity: 1; transform: translateX(0); }
+    .card.from-right { --translate-x: 100%; }
+    .card.from-left  { --translate-x: -100%; }
+    .card h2 { margin-bottom: 0.75rem; color: var(--accent3); }
+    .card p { margin-bottom: 1rem; }
+    .card .btn {
+      padding: 0.5rem 1rem; background: var(--accent2); color: #fff;
+      border-radius: 4px; text-decoration: none; font-size: 0.9rem;
+      transition: background var(--transition-fast);
+    }
+    .card .btn:hover { background: var(--accent3); }
+
+    /* Footer */
+    .footer {
+      background: var(--header-bg); backdrop-filter: blur(10px) saturate(180%);
+      padding: 1.5rem 1rem; text-align: center; font-size: 0.9rem;
+      border-top: 1px solid rgba(0,0,0,0.1); margin-top: 2rem;
+      transition: background var(--transition-fast);
+    }
+    .footer a {
+      margin: 0 0.5rem; color: var(--text);
+      text-decoration: none; transition: color var(--transition-fast);
+    }
+    .footer a:hover { color: var(--accent1); }
+
+    @media (min-width: 600px) {
+      .hero h1 { font-size: 3.5rem; }
+      .hero p  { font-size: 1.25rem; }
+    }
+  </style>
 </head>
-<body>
-  <header class="navbar" style="border-bottom: 1px solid white;">
-    <div class="nav-container">
-      <a href="#home" class="logo">Fluvento</a>
-      <button class="nav-toggle" aria-label="Navigation umschalten">
-        <i class="fa fa-bars"></i>
-      </button>
-      <nav class="nav-menu">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#vision" class="nav-link">Vision</a>
-        <a href="#blog" class="nav-link">Blog</a>
-        <a href="#about" class="nav-link">Über uns</a>
-        <a href="#contact" class="nav-link">Kontakt</a>
-      </nav>
-    </div>
+<body class="light-mode">
+
+  <!-- Header mit Theme-Umschalter -->
+  <header class="navbar">
+    <div class="logo">Bflügel</div>
+    <nav>
+      <a href="#kontakt">Kontakt</a>
+      <button id="theme-toggle" aria-label="Theme umschalten">🌙</button>
+    </nav>
   </header>
 
-  <main class="container">
-    <!-- Home -->
-    <section id="home" class="page active">
-      <div class="hero">
-        <h1>PROMPTING-KURSE</h1>
-        <h3>Prompting: Die Kunst, KI nach Deinen Regeln zu steuern</h3>
-        <p class="subtitle">Lerne in 4 Wochen, wie Du mit klaren Anweisungen (Prompts) aus jeder KI-Anwendung genau die Antworten erhältst, die Dein Business voranbringen.</p>
-      
-        <form id="signup-form" class="newsletter">
-            <h3>Jetzt vormerken und Frühbucher-Rabatt sichern!</h3>
-          <label for="email">E-Mail-Adresse:</label>
-          <div class="input-group">
-            <input type="email" id="email" name="email" placeholder="name@beispiel.de" required>
-            <button type="submit" class="btn">Abonnieren</button>
-          </div>
-          <p id="msg" class="msg"></p>
-        </form>
-      </div>
-    </section>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Dein starker Partner im Web</h1>
+    <p>Wir entwickeln moderne Progressive Web Apps &amp; skalierbare Backends – immer mobile-first, immer performant.</p>
+    <a href="#services" class="btn">Jetzt mehr erfahren</a>
+  </section>
 
-    <!-- Vision -->
-    <section id="vision" class="page">
-      <h2>Unsere Vision</h2>
-      <p>Wir bei Fluvento glauben an die Kraft von KI-Prompting, um Teams produktiver und kreativer zu machen. Mit praxisnahen Workshops und einer starken Community öffnen und teilen wir Wissen.</p>
-    </section>
+  <!-- Cards -->
+  <section class="cards">
+    <div class="card"><h2>Progressive Web Apps</h2><p>Offline-fähig, stark wie native Apps – und direkt im Browser.</p><a href="#pwa" class="btn">Mehr Details</a></div>
+    <div class="card"><h2>Modernes Frontend</h2><p>React, Vue oder Svelte – interaktive UIs mit Tailwind &amp; D3.js.</p><a href="#frontend" class="btn">Zum Portfolio</a></div>
+    <div class="card"><h2>Leistungsstarke Backends</h2><p>Node.js, Python oder Supabase – skalierbare APIs &amp; Datenbanken.</p><a href="#backend" class="btn">Erfahre mehr</a></div>
+    <div class="card"><h2>Marketing &amp; Copywriting</h2><p>Kampagnen, Texte &amp; Storytelling für mehr Conversions.</p><a href="#marketing" class="btn">Unsere Leistungen</a></div>
+    <div class="card"><h2>Datenanalyse &amp; Projektmanagement</h2><p>Datenreports und agile Steuerung – Projekte reibungslos und datenbasiert.</p><a href="#data" class="btn">Kontakt aufnehmen</a></div>
+  </section>
 
-    <!-- Blog -->
-    <section id="blog" class="page">
-      <h2>Blog</h2>
-      <div id="blog-list" class="card-grid"></div>
-      <div id="blog-post"></div>
-    </section>
-
-    <!-- Über uns -->
-    <section id="about" class="page">
-      <h2>Über uns</h2>
-      <p>Fluvento Solutions – dein Partner für KI-Prompting und Web-Mentoring. Gegründet von Bastian Flügel, bieten wir Workshops, Mentoring und PR-Support für Startups.</p>
-    </section>
-
-    <!-- Kontakt -->
-    <section id="contact" class="page">
-      <h2>Kontakt</h2>
-      <p>Fragen zu Kursen oder Kooperationen? Schreib uns:</p>
-      <p><i class="fa-solid fa-envelope"></i> <a href="mailto:kontakt@fluvento-solutions.eu">kontakt@fluvento-solutions.eu</a></p>
-      <p><i class="fa-solid fa-phone"></i> +49 123 456 7890</p>
-      <p>Sprechzeiten: Mo–Fr ab 14 Uhr • Samstag ganztägig</p>
-    </section>
-
-    <!-- Datenschutz -->
-    <section id="datenschutz" class="page">
-      <h2>Datenschutz</h2>
-      <p>Verantwortlicher: Fluvento Solutions, Drosselstr. 4, 84144 Geisenhausen</p>
-      <p>Erhobene Daten: E-Mail (Newsletter), technische Log-Daten (anonymisiert)</p>
-      <p>Rechtsgrundlage: Vertragserfüllung (Art. 6 Abs. 1 b DSGVO) & berechtigte Interessen</p>
-      <p>Speicherfrist: Newsletter bis Widerruf; Logs max. 7 Tage</p>
-    </section>
-  </main>
-
-  <footer class="footer" style="border-top: 1px solid white;">
-    <div class="footer-impressum">
-      
-      <p>© 2025 Fluvento Solutions. Alle Rechte vorbehalten.</p>
-      <br>
-      <p><a href="#datenschutz">Datenschutz</a></p>
-      <br>
-      <p>IMPRESSUM</p>
-      <p>Fluvento Solutions<br>Inhaber: Bastian Flügel<br>Drosselstr. 4<br>Geisenhausen</p>
-    </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <a href="#">Impressum</a> | <a href="#">Datenschutz</a> | <a href="#">AGB</a><br>
+    &copy; 2025 Bflügel.de
   </footer>
 
-  <script src="app.js"></script>
+  <script>
+    // Theme initialisieren
+    const root = document.documentElement;
+    const toggle = document.getElementById('theme-toggle');
+    const stored = localStorage.getItem('theme');
+    if (stored === 'dark') {
+      root.classList.replace('light-mode','dark-mode');
+      toggle.textContent = '☀️';
+    }
+
+    // Umschalten per Klick
+    toggle.addEventListener('click', () => {
+      const isDark = root.classList.toggle('dark-mode');
+      root.classList.toggle('light-mode');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      toggle.textContent = isDark ? '☀️' : '🌙';
+    });
+
+    // Ein-/Ausblenden Cards
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach((c,i) => c.classList.add(i%2===0?'from-right':'from-left'));
+      const onScroll = () => {
+        const vh = window.innerHeight, top=vh*0.2, bot=vh*0.8;
+        cards.forEach(c => {
+          const r=c.getBoundingClientRect();
+          c.classList.toggle('in-view', r.bottom>top && r.top<bot);
+        });
+      };
+      window.addEventListener('scroll', onScroll);
+      window.addEventListener('resize', onScroll);
+      onScroll();
+    });
+  </script>
 </body>
 </html>
