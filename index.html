@@ -8,12 +8,11 @@
     /* Basis-Variablen */
     :root {
       --header-height: 60px;
-      --accent1: #7CC576; /* Grasgrün */
-      --accent2: #56876D; /* Moosgrün */
-      --accent3: #2F4F2F; /* Tannengrün */
+      --accent1: #7CC576;   /* Grasgrün */
+      --accent2: #56876D;   /* Moosgrün */
+      --accent3: #2F4F2F;   /* Tannengrün */
       --transition-fast: 0.3s;
     }
-
     /* Light Mode */
     :root.light-mode {
       --bg: #ffffff;
@@ -22,7 +21,6 @@
       --card-border: rgba(0,0,0,0.1);
       --text: #222222;
     }
-
     /* Dark Mode */
     :root.dark-mode {
       --bg: #2E2E2E;
@@ -43,13 +41,12 @@
       scroll-snap-type: y mandatory;
       background: var(--bg);
       color: var(--text);
-      transition: background var(--transition-fast), color var(--transition-fast);
       font-family: 'Segoe UI', Tahoma, sans-serif;
       line-height: 1.5;
     }
     * { box-sizing: border-box; }
 
-    /* Header & Toggle */
+    /* Header */
     header.navbar {
       position: fixed; top: 0; left: 0; right: 0;
       height: var(--header-height);
@@ -59,7 +56,6 @@
       backdrop-filter: blur(10px) saturate(180%);
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       z-index: 1000;
-      transition: background var(--transition-fast);
     }
     .logo {
       font-size: 1.25rem; font-weight: bold;
@@ -75,11 +71,9 @@
       background: none; border: none;
       font-size: 1.25rem; cursor: pointer;
       color: var(--text);
-      transition: color var(--transition-fast);
     }
-    #theme-toggle:hover { color: var(--accent2); }
 
-    /* Sections: ensure header doesn’t cover on snap */
+    /* Sections & snap */
     section {
       scroll-snap-align: start;
       scroll-margin-top: var(--header-height);
@@ -94,52 +88,92 @@
       background: linear-gradient(135deg, var(--accent1), var(--accent2));
       color: #fff;
       padding: 0 1rem;
-      transition: background var(--transition-fast);
+      margin-top: var(--header-height);
     }
-    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .hero h1 {
+      font-size: 2.5rem; margin-bottom: 0.5rem;
+    }
     .hero p {
       font-size: 1.125rem; margin-bottom: 1.5rem; max-width: 600px;
     }
     .hero .btn {
-      padding: 0.75rem 1.5rem; background: #fff; color: var(--accent3);
-      border-radius: 4px; text-decoration: none; font-weight: bold;
-      transition: background var(--transition-fast), color var(--transition-fast);
+      padding: 0.75rem 1.5rem;
+      background: #fff; color: var(--accent3);
+      border-radius: 4px; font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 20px var(--accent1);
+      transition: box-shadow var(--transition-fast);
     }
-    .hero .btn:hover { background: rgba(255,255,255,0.8); color: var(--accent2); }
+    .hero .btn:hover {
+      background: rgba(255,255,255,0.8);
+      color: var(--accent2);
+    }
 
-    /* Cards */
-    .cards { padding: 3rem 0; }
-    .card {
-      margin: 2rem auto; width: 90%; max-width: 600px;
-      background: var(--card-bg); border: 1px solid var(--card-border);
-      border-radius: 12px; backdrop-filter: blur(10px) saturate(180%);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-      padding: 1.5rem; opacity: 0;
-      transform: translateX(var(--translate-x));
-      transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+    /* Cards Grid */
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 3rem 1rem;
+      justify-items: center;
     }
-    .card.in-view { opacity: 1; transform: translateX(0); }
-    .card.from-right { --translate-x: 100%; }
+    @media (min-width: 900px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 3rem 2rem;
+      }
+    }
+
+    /* Card-Grundstylings */
+    .card {
+      width: 100%; max-width: 600px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      backdrop-filter: blur(10px) saturate(180%);
+      padding: 1.5rem;
+      opacity: 0;
+      transform: translateX(var(--translate-x));
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      transition:
+        transform 0.6s ease-out,
+        opacity   0.6s ease-out,
+        box-shadow 0.5s ease-out;
+    }
+    .card.in {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .card.glow {
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1), 0 0 20px var(--accent1);
+    }
     .card.from-left  { --translate-x: -100%; }
+    .card.from-right { --translate-x:  100%; }
     .card h2 { margin-bottom: 0.75rem; color: var(--accent3); }
-    .card p { margin-bottom: 1rem; }
+    .card p  { margin-bottom: 1rem; }
     .card .btn {
-      padding: 0.5rem 1rem; background: var(--accent2); color: #fff;
-      border-radius: 4px; text-decoration: none; font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+      background: var(--accent2);
+      color: #fff;
+      border-radius: 4px;
+      text-decoration: none;
       transition: background var(--transition-fast);
     }
     .card .btn:hover { background: var(--accent3); }
 
     /* Footer */
     .footer {
-      background: var(--header-bg); backdrop-filter: blur(10px) saturate(180%);
-      padding: 1.5rem 1rem; text-align: center; font-size: 0.9rem;
-      border-top: 1px solid rgba(0,0,0,0.1); margin-top: 2rem;
-      transition: background var(--transition-fast);
+      background: var(--header-bg);
+      backdrop-filter: blur(10px) saturate(180%);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      margin-top: 2rem;
     }
     .footer a {
       margin: 0 0.5rem; color: var(--text);
-      text-decoration: none; transition: color var(--transition-fast);
+      text-decoration: none;
     }
     .footer a:hover { color: var(--accent1); }
 
@@ -153,7 +187,7 @@
 
   <!-- Header mit Theme-Umschalter -->
   <header class="navbar">
-    <div class="logo">Bflügel</div>
+    <div class="logo">BFLG</div>
     <nav>
       <a href="#kontakt">Kontakt</a>
       <button id="theme-toggle" aria-label="Theme umschalten">🌙</button>
@@ -163,27 +197,30 @@
   <!-- Hero -->
   <section class="hero">
     <h1>Dein starker Partner im Web</h1>
-    <p>Wir entwickeln moderne Progressive Web Apps &amp; skalierbare Backends – immer mobile-first, immer performant.</p>
+    <p>Wir entwickeln moderne Progressive Web Apps &amp; skalierbare Backends – immer mobile-first und performant.</p>
     <a href="#services" class="btn">Jetzt mehr erfahren</a>
   </section>
 
-  <!-- Cards -->
+  <!-- 8 Cards -->
   <section class="cards">
-    <div class="card"><h2>Progressive Web Apps</h2><p>Offline-fähig, stark wie native Apps – und direkt im Browser.</p><a href="#pwa" class="btn">Mehr Details</a></div>
-    <div class="card"><h2>Modernes Frontend</h2><p>React, Vue oder Svelte – interaktive UIs mit Tailwind &amp; D3.js.</p><a href="#frontend" class="btn">Zum Portfolio</a></div>
-    <div class="card"><h2>Leistungsstarke Backends</h2><p>Node.js, Python oder Supabase – skalierbare APIs &amp; Datenbanken.</p><a href="#backend" class="btn">Erfahre mehr</a></div>
-    <div class="card"><h2>Marketing &amp; Copywriting</h2><p>Kampagnen, Texte &amp; Storytelling für mehr Conversions.</p><a href="#marketing" class="btn">Unsere Leistungen</a></div>
-    <div class="card"><h2>Datenanalyse &amp; Projektmanagement</h2><p>Datenreports und agile Steuerung – Projekte reibungslos und datenbasiert.</p><a href="#data" class="btn">Kontakt aufnehmen</a></div>
+    <div class="card"><h2>Progressive Web Apps</h2><p>Offline-fähig und performant – native App-Feeling im Browser.</p><a href="#pwa" class="btn">Mehr Details</a></div>
+    <div class="card"><h2>Modernes Frontend</h2><p>React, Vue oder Svelte mit Tailwind CSS und D3.js-Visuals.</p><a href="#frontend" class="btn">Zum Portfolio</a></div>
+    <div class="card"><h2>Leistungsstarke Backends</h2><p>Node.js, Python &amp; Supabase – skalierbare APIs und Datenbanken.</p><a href="#backend" class="btn">Erfahre mehr</a></div>
+    <div class="card"><h2>DevOps &amp; CI/CD</h2><p>Automatisierte Deployments, Docker &amp; Kubernetes für zuverlässige Releases.</p><a href="#devops" class="btn">Unsere DevOps</a></div>
+    <div class="card"><h2>UI/UX Design</h2><p>Intuitive Interfaces und ansprechende Nutzererlebnisse für deine Zielgruppe.</p><a href="#design" class="btn">Design ansehen</a></div>
+    <div class="card"><h2>Marketing &amp; Copywriting</h2><p>Psychologisch optimierte Texte und zielgerichtete Kampagnen.</p><a href="#marketing" class="btn">Leistungen</a></div>
+    <div class="card"><h2>Datenanalyse</h2><p>Dashboards, Reports und Insights – datengetriebene Entscheidungen.</p><a href="#data" class="btn">Mehr Infos</a></div>
+    <div class="card"><h2>SEO &amp; Performance</h2><p>On-Page-Optimierung und schnelle Ladezeiten für bessere Rankings.</p><a href="#seo" class="btn">SEO-Check</a></div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
     <a href="#">Impressum</a> | <a href="#">Datenschutz</a> | <a href="#">AGB</a><br>
-    &copy; 2025 Bflügel.de
+    &copy; 2025 Bastian Flügel
   </footer>
 
   <script>
-    // Theme initialisieren
+    // Theme Toggle
     const root = document.documentElement;
     const toggle = document.getElementById('theme-toggle');
     const stored = localStorage.getItem('theme');
@@ -191,8 +228,6 @@
       root.classList.replace('light-mode','dark-mode');
       toggle.textContent = '☀️';
     }
-
-    // Umschalten per Klick
     toggle.addEventListener('click', () => {
       const isDark = root.classList.toggle('dark-mode');
       root.classList.toggle('light-mode');
@@ -200,17 +235,39 @@
       toggle.textContent = isDark ? '☀️' : '🌙';
     });
 
-    // Ein-/Ausblenden Cards
+    // Cards: Ein-/Ausblenden & Glow mit Delays
     document.addEventListener('DOMContentLoaded', () => {
       const cards = document.querySelectorAll('.card');
-      cards.forEach((c,i) => c.classList.add(i%2===0?'from-right':'from-left'));
-      const onScroll = () => {
-        const vh = window.innerHeight, top=vh*0.2, bot=vh*0.8;
-        cards.forEach(c => {
-          const r=c.getBoundingClientRect();
-          c.classList.toggle('in-view', r.bottom>top && r.top<bot);
+      cards.forEach((card, i) => {
+        // links-spalte (i gerade) fliegt von links, rechts-spalte (i ungerade) von rechts
+        card.classList.add(i % 2 === 0 ? 'from-left' : 'from-right');
+        card._glowTimer = null;
+        card._outTimer = null;
+      });
+
+      function inView(rect, vh) {
+        return rect.bottom > vh * 0.2 && rect.top < vh * 0.8;
+      }
+
+      function onScroll() {
+        const vh = window.innerHeight;
+        cards.forEach(card => {
+          const r = card.getBoundingClientRect();
+          const isIn = inView(r, vh);
+
+          if (isIn && !card.classList.contains('in')) {
+            clearTimeout(card._outTimer);
+            card.classList.add('in');
+            card._glowTimer = setTimeout(() => card.classList.add('glow'), 250);
+
+          } else if (!isIn && card.classList.contains('in')) {
+            clearTimeout(card._glowTimer);
+            card.classList.remove('glow');
+            card._outTimer = setTimeout(() => card.classList.remove('in'), 250);
+          }
         });
-      };
+      }
+
       window.addEventListener('scroll', onScroll);
       window.addEventListener('resize', onScroll);
       onScroll();
