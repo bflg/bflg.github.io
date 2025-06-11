@@ -68,7 +68,7 @@
       },
       "card4": {
         "title": "Datenvisualisierung",
-        "content": "Anschauliche Dashboards und interaktive Charts mit D3.js &amp; Tableau – Insights auf Knopfdruck.",
+        "content": "Anschauliche Dashboards und interaktive Charts mit D3.js & Tableau – Insights auf Knopfdruck.",
         "btn1": {
           "label": "Mehr erfahren",
           "type": "primary",
@@ -110,7 +110,7 @@
       },
       "card7": {
         "title": "KI-Entwicklung",
-        "content": "Maßgeschneiderte Machine-Learning-Modelle und Automatisierung mit Python &amp; TensorFlow.",
+        "content": "Maßgeschneiderte Machine-Learning-Modelle und Automatisierung mit Python & TensorFlow.",
         "btn1": {
           "label": "Mehr erfahren",
           "type": "primary",
