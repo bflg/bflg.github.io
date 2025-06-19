@@ -38,29 +38,46 @@
     }
     .header .logo img {
       height: 40px;
-      margin-right: 0.5rem;
+      margin-right: .5rem;
     }
     .header h1 {
       font-size:1.25rem;
       color:#0f9d58;
     }
+
+    /* Stiltreuer Pill-Toggle */
     .toggle {
-      display:flex;
-      gap:0.5rem;
+      position: relative;
+      display: inline-flex;
+      background: #e0f4e9;
+      border-radius: 30px;
+      padding: 4px;
     }
     .toggle button {
-      background:transparent;
-      border:none;
-      font-size:0.9rem;
-      cursor:pointer;
-      padding:0.3rem 0.6rem;
-      border-radius:4px;
-      transition: background .3s;
+      flex: 1;
+      background: transparent;
+      border: none;
+      padding: 6px 12px;
+      font-size: .9rem;
+      cursor: pointer;
+      border-radius: 30px;
+      position: relative;
+      z-index: 1;
+      transition: color .3s;
     }
-    .toggle button.active,
-    .toggle button:hover {
-      background: rgba(15,157,88,0.2);
+    .toggle .pill {
+      position: absolute;
+      top: 4px; bottom: 4px;
+      width: 50%;
+      background: #0f9d58;
+      border-radius: 30px;
+      transition: left .3s;
     }
+    .toggle button.active {
+      color: #fff;
+    }
+    #btn-ger.active ~ .pill { left: 4px; }
+    #btn-eng.active ~ .pill { left: calc(50% + 4px); }
 
     /* Wrapper */
     .wrapper {
@@ -195,6 +212,7 @@
     <div class="toggle">
       <button id="btn-ger" class="active">GER</button>
       <button id="btn-eng">ENG</button>
+      <div class="pill"></div>
     </div>
   </div>
 
@@ -205,7 +223,7 @@
       <section id="about">
         <h2>Profil</h2>
         <div class="card">
-          <p>Du möchtest eine Web-App, die einfach funktioniert – auch offline? Ich bin Bastian, dein Entwicklerfreund. Seit Jahren bauen wir zusammen performante PWAs, die stabil, schnell und nutzerfreundlich sind.</p>
+          <p>Du möchtest eine Web-App, die einfach funktioniert – auch offline? Ich bin Bastian, dein Entwicklerfreund. Seit Jahren baue ich performante PWAs, die stabil, schnell und nutzerfreundlich sind.</p>
         </div>
       </section>
 
@@ -356,6 +374,5 @@
       window.location.href = `mailto:bastian.fluegel@mail.de?subject=${subject}&body=${body}`;
     }
   </script>
-
 </body>
 </html>
